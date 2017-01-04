@@ -11,12 +11,14 @@ Once it's installed, open up the Node.js command prompt.
 
 ![alt text](images/node_command_prompt.PNG)
 
-##### Create your project directory
+#### Create your project directory
 `cd Desktop`
+
 `mkdir TinyApp`
+
 `cd TinyApp`
 
-##### Setup your package.json file
+### Setup your package.json file
 `npm init --yes`
 
 You will need the following packages:
@@ -30,5 +32,4 @@ You will need the following packages:
 * webpack
 * webpack-dev-server
 
-`npm i -S react react-dom babel-core babel-loader babel-preset-react
- babel-preset-es2015 babel-preset-stage-0 webpack webpack-dev-server`
+`npm i -S react react-dom babel-core babel-loader babel-preset-react babel-preset-es2015 babel-preset-stage-0 webpack webpack-dev-server`
