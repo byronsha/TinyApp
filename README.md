@@ -11,4 +11,4 @@ Once it's installed, open up the Node.js command prompt.
 
 You should see something like this:
 
-![Alt text](/images/node_command_prompt.PNG)
+![Alt text](/images/node_command_prompt.png =250x)
