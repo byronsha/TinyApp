@@ -1,7 +1,7 @@
 # TinyApp
 A tiny tutorial for a friend learning React who, like many, hates the initial setup required to get up and running and writing code.
 
-Also for those who sometimes feel like doing some coding on their Windows machine between matches in Dota 2, League, Overwatch, etc. :)
+Also for those who sometimes feel like developing on their Windows machine between matches in Dota 2, League, Overwatch, etc. :)
 
 Follow this tutorial or clone this repo to get started with using the following technologies:
 * ES6
@@ -47,11 +47,13 @@ Run the following in the command prompt to install them all:
 
 `npm i -S react react-dom babel-core babel-loader babel-preset-react babel-preset-es2015 babel-preset-stage-0 webpack webpack-dev-server`
 
+`npm i -S` is shorthand for `npm install --save`
+
 Also add the following line to your `package.json` "scripts":
 
 `"dev": "webpack-dev-server --inline"`
 
-We'll use this at the end of the tutorial to start up our server.
+We'll use this script at the end of the tutorial to start up our server.
 
 The whole file should look like this now:
 
