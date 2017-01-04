@@ -1,17 +1,22 @@
 # TinyApp
-For a friend learning React, who complained about the initial setup.
+A tiny tutorial for a friend learning React who, like many, hates the initial setup required to get up and running and writing code.
 
-And for those who sometimes feel like doing some coding on their Windows machine
-between matches in Dota 2, League, Overwatch, etc.
+And for those who sometimes feel like doing some coding on their Windows machine between matches in Dota 2, League, Overwatch, etc.
+
+Follow this tutorial or clone this repo to get started with using the following technologies:
+* ES6
+* React
+* webpack
+* webpack-dev-server (with live reloading!)
 
 ## Install Node.js for Windows
 Download the latest version of Node.js from https://nodejs.org/en/
 
 Once it's installed, open up the Node.js command prompt.
 
-![alt text](images/node_command_prompt.png)
+![alt text](images/nodejs_command_prompt.png)
 
-### Create your project directory
+## Create your project directory
 In your command prompt:
 
 `cd Desktop`  
@@ -42,9 +47,7 @@ Also add the following line to your `package.json` "scripts":
 
 `"dev": "webpack-dev-server --inline"`
 
-The file should look like this now:
-
-![alt text](images/package.json.png)
+The whole file should look like this now:
 
 ```
 {
@@ -76,14 +79,52 @@ The file should look like this now:
 ## Create webpack.config.js file
 In your root directory, create a file named `webpack.config.js`, and copy the following code:
 
-![alt text](images/node_command_prompt.png)
+```
+var path = require('path');
 
-There's a ton of different things you're allowed to configure here, depending on what packages you want to include in your project. This is the most simple version I could come up with.
+module.exports = {
+  entry: './app/entry.js',
+  output: {
+    path: path.join(__dirname, 'build'),
+    publicPath: '/assets/',
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react', 'stage-0']
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  }
+}
+```
+
+There's a ton of different things you're allowed to configure here, depending on what packages you want to include in your project. This is the most simple version I could come up with. Accept that you'll have to just copy/paste this file for a while.
 
 ## Create index.html file
 In your root directory, create a file named `index.html`, and copy the following code:
 
-![alt text](images/node_command_prompt.png)
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tiny App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/javascript" src="assets/bundle.js"></script>
+  </body>
+</html>
+```
 
 `<div id="root"></div>` is the root DOM element that your React app will be attached to.
 
@@ -91,7 +132,28 @@ In your root directory, create a file named `index.html`, and copy the following
 
 webpack-dev-server is a little Node.js Express server, which uses webpack-dev-middleware to serve a webpack bundle. You can read more about it in the official docs: https://webpack.github.io/docs/webpack-dev-server.html
 
-If you want to create `bundle.js`, just run `webpack` in your terminal and, in this example, you should see it in `build/bundle.js`.
+If you want to create the `bundle.js` file for production, just run `webpack` in your terminal and, in this example, you should see it in `build/bundle.js`.
 
 ## Create app/entry.js file
-Create a new folder inside your project called `app`. Inside `app` create a file named `entry.js`. This is the entry point for webpack, where you'll start writing your React app.
+Create a new folder inside your project called `app`. Inside `app` create a file named `entry.js`. This is the entry point for webpack, where you'll start writing your React app. Copy the following code into the file:
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <div>Hey, it works! Nice!</div>,
+    document.getElementById('root')
+  )
+})
+```
+
+## Start webpack-dev-server
+In your Node.js command prompt, run `npm run dev` to start up your webpack-dev-server. We defined the `"dev"` script earlier in our `package.json` file to run the command `webpack-dev-server --inline`.
+
+The `--inline` option makes our browser automatically refresh when we save changes!
+
+Visit `http://localhost:8080/` to see your app. You should see `"Hey, it works! Nice!"`. Change the text inside `entry.js`, save, and see if your browser automatically refreshes. If it does, everything should be set up correctly.
+
+You're good to go! Happy coding!
