@@ -9,6 +9,4 @@ Download the latest version of Node.js from https://nodejs.org/en/
 
 Once it's installed, open up the Node.js command prompt.
 
-You should see something like this:
-
-![alt text](images/node_command_prompt.PNG)
+![alt text](images/node_command_prompt.PNG =250x)
