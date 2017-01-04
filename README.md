@@ -11,4 +11,4 @@ Once it's installed, open up the Node.js command prompt.
 
 You should see something like this:
 
-![Alt Text](https://github.com/byronsha/TinyApp/raw/master/images/node_command_prompt.png)
+![alt text](images/node_command_prompt.png)
