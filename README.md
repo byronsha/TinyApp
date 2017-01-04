@@ -1,7 +1,7 @@
 # TinyApp
 A tiny tutorial for a friend learning React who, like many, hates the initial setup required to get up and running and writing code.
 
-And for those who sometimes feel like doing some coding on their Windows machine between matches in Dota 2, League, Overwatch, etc.
+Also for those who sometimes feel like doing some coding on their Windows machine between matches in Dota 2, League, Overwatch, etc. :)
 
 Follow this tutorial or clone this repo to get started with using the following technologies:
 * ES6
@@ -30,6 +30,8 @@ Initialize using the the command:
 
 `npm init --yes`
 
+This will create a `package.json` file for you.
+
 You will need the following packages:
 * react
 * react-dom
@@ -41,11 +43,15 @@ You will need the following packages:
 * webpack
 * webpack-dev-server
 
+Run the following in the command prompt to install them all:
+
 `npm i -S react react-dom babel-core babel-loader babel-preset-react babel-preset-es2015 babel-preset-stage-0 webpack webpack-dev-server`
 
 Also add the following line to your `package.json` "scripts":
 
 `"dev": "webpack-dev-server --inline"`
+
+We'll use this at the end of the tutorial to start up our server.
 
 The whole file should look like this now:
 
@@ -77,7 +83,7 @@ The whole file should look like this now:
 ```
 
 ## Create webpack.config.js file
-In your root directory, create a file named `webpack.config.js`, and copy the following code:
+In your project's root directory, create a file named `webpack.config.js`, and copy into it the following code:
 
 ```
 var path = require('path');
@@ -107,10 +113,10 @@ module.exports = {
 }
 ```
 
-There's a ton of different things you're allowed to configure here, depending on what packages you want to include in your project. This is the most simple version I could come up with. Accept that you'll have to just copy/paste this file for a while.
+There's a ton of different things you're allowed to configure here depending on what packages you want to include in your project. This is the most simple version I could come up with. Accept that you'll have to just copy this file from somewhere for a while.
 
 ## Create index.html file
-In your root directory, create a file named `index.html`, and copy the following code:
+In your project's root directory, create a file named `index.html`, and copy into it the following code:
 
 ```
 <!DOCTYPE html>
@@ -128,7 +134,7 @@ In your root directory, create a file named `index.html`, and copy the following
 
 `<div id="root"></div>` is the root DOM element that your React app will be attached to.
 
-`assets/bundle.js` is the bundled file created by webpack-dev-server that includes live-reloading. This should only be used for development. You'll notice that no file is created in your project directory.
+`assets/bundle.js` is the bundled file served by webpack-dev-server that will be updated and injected into the running app whenever you save changes. This should only be used for development. You'll notice that this file is not actually created in your project directory.
 
 webpack-dev-server is a little Node.js Express server, which uses webpack-dev-middleware to serve a webpack bundle. You can read more about it in the official docs: https://webpack.github.io/docs/webpack-dev-server.html
 
