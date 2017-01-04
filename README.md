@@ -164,4 +164,6 @@ The `--inline` option makes our browser automatically refresh when we save chang
 
 Visit `http://localhost:8080/` to see your app. You should see `"Hey, it works! Nice!"`. Change the text inside `entry.js`, save, and see if your browser automatically refreshes. If it does, everything should be set up correctly.
 
+If it doesn't work you might need to install webpack globally using the command `npm install -g webpack`.
+
 You're good to go! Happy coding!
